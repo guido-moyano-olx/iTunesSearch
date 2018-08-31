@@ -27,14 +27,14 @@ class SearchViewController: UIViewController {
     
     private func searchForContent() {
         if let searchText = self.searchBar.text?.asSearchTerms() {
-            APIClient.search(term: searchText, mediaType: self.mediaType.rawValue) { (contents, error) in
+            APIClient.search(term: searchText, mediaType: self.mediaType.rawValue) { [weak self] (contents, error) in
                 
                 if error != nil {
-                    self.showError(error!)
+                    self?.showError(error!)
                 }
                 
-                self.mediaContent = contents
-                self.tableView.reloadData()
+                self?.mediaContent = contents
+                self?.tableView.reloadData()
             }
         }
         else {
