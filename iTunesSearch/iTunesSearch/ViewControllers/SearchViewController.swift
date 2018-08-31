@@ -25,7 +25,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    private func fetchData() {
+    private func searchForContent() {
         if let searchText = self.searchBar.text?.asSearchTerms() {
             APIClient.search(term: searchText, mediaType: self.mediaType.rawValue) { (contents, error) in
                 
@@ -62,7 +62,7 @@ extension SearchViewController {
             break
         }
         
-        self.fetchData()
+        self.searchForContent()
     }
 }
 
@@ -102,7 +102,7 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.fetchData()
+        self.searchForContent()
         if searchBar.isFirstResponder {
             searchBar.resignFirstResponder()
         }
