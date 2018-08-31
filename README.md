@@ -16,6 +16,7 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 ### Third Party Libraries
 
 Alamofire - https://github.com/Alamofire/Alamofire
+SwiftyJSON - https://github.com/SwiftyJSON/SwiftyJSON
 
 ### Possible Improvements
 
