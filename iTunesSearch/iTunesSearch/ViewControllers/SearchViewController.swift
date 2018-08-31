@@ -14,8 +14,12 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mediaTypeSegmentedControl: UISegmentedControl!
     
-    var mediaContent = [MediaContent]()
-    var mediaType: MediaType = .tvShow
+    private var mediaContent = [MediaContent]()
+    private var mediaType: MediaType = .tvShow
+    
+    private let mediaCellIdentifier = "mediaContentCell"
+    private let mediaCellHeight:CGFloat = 150
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +27,12 @@ class SearchViewController: UIViewController {
     
     private func fetchData() {
         if let searchText = self.searchBar.text?.asSearchTerms() {
-            APIClient.search(term: searchText, mediaType: self.mediaType.rawValue) { (contents) in
+            APIClient.search(term: searchText, mediaType: self.mediaType.rawValue) { (contents, error) in
+                
+                if error != nil {
+                    self.showError(error!)
+                }
+                
                 self.mediaContent = contents
                 self.tableView.reloadData()
             }
@@ -66,7 +75,7 @@ extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         
-        if let mediaContentCell = tableView.dequeueReusableCell(withIdentifier: "mediaContentCell") as? MediaContentCell {
+        if let mediaContentCell = tableView.dequeueReusableCell(withIdentifier: self.mediaCellIdentifier) as? MediaContentCell {
             mediaContentCell.configure(mediaContent: self.mediaContent[indexPath.row], mediaType: self.mediaType)
             cell = mediaContentCell
         }
@@ -79,7 +88,7 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return mediaCellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

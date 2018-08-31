@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0753E4002138BCE300F67A36 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753E3FF2138BCE300F67A36 /* UIViewController+Extensions.swift */; };
 		279F47758CD0532052B1B335 /* Pods_iTunesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916F5F32282376E65379B756 /* Pods_iTunesSearch.framework */; };
 		A32118D521319BCF008F63E5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32118D421319BCF008F63E5 /* API.swift */; };
 		A348E9A921348ADF0034B58E /* MediaContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A348E9A821348ADF0034B58E /* MediaContentCell.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0753E3FF2138BCE300F67A36 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		6D5444CEC64447264C439D37 /* Pods-iTunesSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearch/Pods-iTunesSearch.release.xcconfig"; sourceTree = "<group>"; };
 		850C9814F9443A4F97C8EA14 /* Pods-iTunesSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearch/Pods-iTunesSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		916F5F32282376E65379B756 /* Pods_iTunesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			children = (
 				A348E9AE2134B19D0034B58E /* UIImageView+Extensions.swift */,
 				A3BA33172135E00200828539 /* String+Extensions.swift */,
+				0753E3FF2138BCE300F67A36 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				A3BA33182135E00200828539 /* String+Extensions.swift in Sources */,
 				A32118D521319BCF008F63E5 /* API.swift in Sources */,
 				A3F0C5CE2134610300D0B054 /* MediaContent.swift in Sources */,
+				0753E4002138BCE300F67A36 /* UIViewController+Extensions.swift in Sources */,
 				A348E9AF2134B19D0034B58E /* UIImageView+Extensions.swift in Sources */,
 				A348E9A921348ADF0034B58E /* MediaContentCell.swift in Sources */,
 				A3FAF6E72130BB5600B5734D /* AppDelegate.swift in Sources */,

@@ -73,21 +73,26 @@ enum APIRouter: URLRequestConvertible {
 
 class APIClient {
     
-    static func search(term:String, mediaType:String, completion: @escaping ([MediaContent]) -> Void) {
+    static func search(term:String, mediaType:String, completion: @escaping ([MediaContent], Error?) -> Void) {
         Alamofire.request(APIRouter.search(term: term, mediaType: mediaType)).responseJSON { (response) in
             
-            let json = JSON(response.result.value!)
-            
-            var mediaContents = [MediaContent]()
-            
-            if let contentJson = json["results"].array {
-                for content in contentJson {
-                    let mediaContent = MediaContent(JSON: content)
-                    mediaContents.append(mediaContent)
+            if let error = response.error {
+                completion([], error)
+            }
+            else {
+                let json = JSON(response.result.value!)
+                var mediaContents = [MediaContent]()
+                
+                if let contentJson = json["results"].array {
+                    for content in contentJson {
+                        let mediaContent = MediaContent(JSON: content)
+                        mediaContents.append(mediaContent)
+                    }
                 }
+                
+                completion(mediaContents, nil)
             }
             
-            completion(mediaContents)
         }
     }
     
