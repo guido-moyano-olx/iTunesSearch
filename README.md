@@ -16,3 +16,7 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 ### Third Party Libraries
 
 Alamofire - https://github.com/Alamofire/Alamofire
+
+### Possible Improvements
+
+A good improvement for the performance of the app would be adding a library that manages image caching (such as AlamofireImage), since right now the images are downloaded via the ```load``` function (```UIImage``` extension) and, while scrolling through search results, the same images are downloaded over and over again when a ```MediaContentCell``` is reused.
