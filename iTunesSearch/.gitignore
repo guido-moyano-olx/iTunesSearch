@@ -76,4 +76,4 @@ fastlane/test_output
 
 # Ignore MacOS DS_Store files
 
-*.DS_Store
+.DS_Store
